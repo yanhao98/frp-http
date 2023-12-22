@@ -1,0 +1,11 @@
+version: '3'
+services:
+  frp-http-server:
+    build: .
+    environment:
+      - FRP_SUBDOMAIN_HOST=yhfrp.tk
+    # volumes:
+    #   - ./src/html/client.sh:/usr/share/nginx/html/client.sh
+    ports:
+      - "80:80"
+      - "7000:7000"

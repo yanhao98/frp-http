@@ -1,0 +1,35 @@
+server {
+  listen 80;
+  server_name ${FRP_SUBDOMAIN_HOST};
+  default_type text/plain;
+  charset utf-8;
+  root /usr/share/nginx/html;
+  autoindex on;
+
+  location ~ ^/(favicon.ico|api) {
+    proxy_pass http://127.0.0.1:7500;
+  }
+
+  location = /dash {
+    return 301 https://$host/dash/#/proxies/http;
+  }
+  location /dash/ {
+    proxy_pass http://127.0.0.1:7500;
+    rewrite ^/dash/(.*)$ /static/$1 break;
+  }
+
+  location /client.cmd {
+    return 200 "cls && curl -s ${FRP_SUBDOMAIN_HOST}/client.vbs -o %temp%\${FRP_SUBDOMAIN_HOST}_frp_client.vbs && cscript %temp%\${FRP_SUBDOMAIN_HOST}_frp_client.vbs $args\n";
+  }
+}
+
+server {
+  listen 80;
+  server_name *.${FRP_SUBDOMAIN_HOST};
+
+  location / {
+    proxy_pass http://127.0.0.1:7080; # 对应的是 entry.sh 的 --vhost_http_port
+    proxy_set_header Host $http_host;
+    proxy_set_header X-Real-IP $remote_addr;
+  }
+}
