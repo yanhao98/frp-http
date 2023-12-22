@@ -1,4 +1,4 @@
-FROM --platform=$BUILDPLATFORM fatedier/frps:v0.53.2 as origin-frps
+FROM fatedier/frps:v0.53.2 as origin-frps
 
 FROM nginx:1
 COPY --from=origin-frps /usr/bin/frps /usr/bin/frps
