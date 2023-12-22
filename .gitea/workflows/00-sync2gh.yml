@@ -1,0 +1,21 @@
+name: Sync to GitHub
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  sync-to-github:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: Push to GitHub # https://github.com/yanhao98/frp-http
+        run: |
+          git remote set-url origin https://${{ secrets.GH_TOKEN_YH98 }}@github.com/yanhao98/frp-http.git
+          git push origin main

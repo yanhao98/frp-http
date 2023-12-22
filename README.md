@@ -31,6 +31,8 @@ bash <(curl -s domain.com/client.sh) --local=127.0.0.1:80
 - https://github.com/snowdreamtech/frp/blob/master/frps/amd64/Dockerfile
 - [VBScript](https://www.w3school.com.cn/vbscript/index.asp)
 - https://stackoverflow.com/questions/4888197/how-To-show-dos-output-when-using-vbscript-exec/4888791#4888791
+- [Frps服务端一键配置脚本](https://github.com/MvsCode/frps-onekey)
+- [frps-docker](https://github.com/cloverzrg/frps-docker/blob/master/Dockerfile)
 
 ```
 rm /var/log/nginx/access.log /var/log/nginx/error.log
