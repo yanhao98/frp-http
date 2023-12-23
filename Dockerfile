@@ -7,7 +7,7 @@ RUN set -x && \
     apt-get update && \
     apt-get install --no-install-recommends --no-install-suggests -y unzip zip wget && \
     bash /dl-frpc.sh && rm /dl-frpc.sh && \
-    apt-get remove --purge --auto-remove -y unzip zip wget && \
+    apt-get purge -y --auto-remove unzip zip wget && \
     rm -rf /var/lib/apt/lists/*
 
 # STOPSIGNAL SIGINT
