@@ -3,7 +3,7 @@
 ## Server
 ```bash
 docker pull yanhao98/frp-http-server
-docker run -it --rm --name frp-http-server \
+docker run -i --rm --name frp-http-server \
     -e FRP_SUBDOMAIN_HOST=domain.com \
     -e SERVER_IP=$(curl -4s ip.sb) \
     -p 80:80 \
