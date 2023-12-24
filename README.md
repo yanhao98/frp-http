@@ -40,6 +40,7 @@ bash <(curl -s domain.com/client.sh) --local=127.0.0.1:80
     - https://skarnet.org/software/s6/index.html
     - https://github.com/shinsenter/php/blob/main/src/base-s6/Dockerfile
     - https://github.com/technotiger/CashReaper/blob/main/Dockerfile#L33-L34
+    - https://github.com/kufei326/nas-tools/blob/master/docker/rootfs/etc/s6-overlay/s6-rc.d/svc-nastools/run#L12-L14
 
 ### tips
 ```
