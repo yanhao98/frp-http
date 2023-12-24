@@ -1,0 +1,22 @@
+#!/command/with-contenv bash
+# shellcheck shell=bash
+
+FRPS_VER=$(frps -v)
+if [ -z "${SERVER_IP}" ]; then
+    echo "20-SERVER_IP is empty, use ip.sb to get ip"
+    SERVER_IP=$(curl -4s ip.sb)
+fi
+
+echo "20-FRP_SUBDOMAIN_HOST: ${FRP_SUBDOMAIN_HOST}"
+echo "20-SERVER_IP: ${SERVER_IP}"
+echo "20-FRPS_VER: ${FRPS_VER}"
+
+sed -i "s/REPLACE_MAIN_DOMAIN/${FRP_SUBDOMAIN_HOST}/g" /usr/share/nginx/html/client.sh
+sed -i "s/REPLACE_SERVER_IP/${SERVER_IP}/g" /usr/share/nginx/html/client.sh
+sed -i "s/REPLACE_VERSION/${FRPS_VER}/g" /usr/share/nginx/html/client.sh
+
+sed -i "s/REPLACE_MAIN_DOMAIN/${FRP_SUBDOMAIN_HOST}/g" /usr/share/nginx/html/client.vbs
+sed -i "s/REPLACE_SERVER_IP/${SERVER_IP}/g" /usr/share/nginx/html/client.vbs
+sed -i "s/REPLACE_VERSION/${FRPS_VER}/g" /usr/share/nginx/html/client.vbs
+
+exec /docker-entrypoint-nginx.sh nginx -g 'daemon off;'

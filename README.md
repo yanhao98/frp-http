@@ -4,6 +4,7 @@
 ```bash
 docker run -it --rm --name frp-http-server \
     -e FRP_SUBDOMAIN_HOST=domain.com \
+    -e SERVER_IP=$(curl -4s ip.sb) \
     -p 80:80 \
     -p 7000:7000 \
     yanhao98/frp-http-server
@@ -33,7 +34,13 @@ bash <(curl -s domain.com/client.sh) --local=127.0.0.1:80
 - https://stackoverflow.com/questions/4888197/how-To-show-dos-output-when-using-vbscript-exec/4888791#4888791
 - [Frps服务端一键配置脚本](https://github.com/MvsCode/frps-onekey)
 - [frps-docker](https://github.com/cloverzrg/frps-docker/blob/master/Dockerfile)
+- s6-overlay
+    - https://github.com/just-containers/s6-overlay
+    - https://skarnet.org/software/s6/index.html
+    - https://github.com/shinsenter/php/blob/main/src/base-s6/Dockerfile
+    - https://github.com/technotiger/CashReaper/blob/main/Dockerfile#L33-L34
 
+### tips
 ```
 rm /var/log/nginx/access.log /var/log/nginx/error.log
 https://github.com/nginxinc/docker-nginx/blob/4bf0763f4977fff7e9648add59e0540088f3ca9f/mainline/debian/Dockerfile#L102

@@ -1,11 +1,13 @@
 version: '3'
 services:
   frp-http-server:
-    build: .
+    container_name: frp-http-server
+    # tty: true
+    # stdin_open: true
     environment:
-      - FRP_SUBDOMAIN_HOST=yhfrp.tk
-    # volumes:
-    #   - ./src/html/client.sh:/usr/share/nginx/html/client.sh
+      - FRP_SUBDOMAIN_HOST=xxx.com
+      - SERVER_IP=xxx.xxx.xxx.xxx
     ports:
       - "80:80"
       - "7000:7000"
+    build: .
