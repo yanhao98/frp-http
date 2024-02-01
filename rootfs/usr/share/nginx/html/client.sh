@@ -8,15 +8,15 @@ version='REPLACE_VERSION'
 # Get options
 for i in "$@"; do
     case $i in
-    --local=*)
-        LOCAL="${i#*=}"
+        --local=*)
+            LOCAL="${i#*=}"
         ;;
-    -sd=* | --subdomain=*)
-        SUBDOMAIN="${i#*=}"
+        -sd=* | --subdomain=*)
+            SUBDOMAIN="${i#*=}"
         ;;
-    *)
-        # unknown option
-        echo "Unknown option: $i"
+        *)
+            # unknown option
+            echo "Unknown option: $i"
         ;;
     esac
 done
@@ -77,8 +77,8 @@ spaces_needed=$((69 - ${#url}))
 padding=$(printf '%*s' $spaces_needed)
 
 cat <<"EOF" | sed "s|URL|$url$padding|g"
-  ___________________________________________________________________________  
- /         _   _                                                             \ 
+  ___________________________________________________________________________
+ /         _   _                                                             \
 ||        | | (_)                                                            ||
 ||        | |_ _  __ _  ___ _ __                                             ||
 ||        | __| |/ _` |/ _ \ '__|                                            ||
@@ -94,15 +94,13 @@ cat <<"EOF" | sed "s|URL|$url$padding|g"
 ||   to stop frpc, please press ^C.                                          ||
 ||                                                                           ||
 ||   Enjoy!                                                                  ||
- \___________________________________________________________________________/ 
+ \___________________________________________________________________________/
 EOF
 
-
-
 ./frpc http \
-    --server_addr=${SERVER_IP} \
-    --server_port=7000 \
-    --local_ip="${LOCAL_IP}" \
-    --local_port="${LOCAL_PORT}" \
+    --server-addr=${SERVER_IP} \
+    --server-port=7000 \
+    --local-ip="${LOCAL_IP}" \
+    --local-port="${LOCAL_PORT}" \
     --sd="${SUBDOMAIN}" \
-    --proxy_name="${USERNAME}|${LOCAL}|${SUBDOMAIN}"
+    --proxy-name="${USERNAME}|${LOCAL}|${SUBDOMAIN}"

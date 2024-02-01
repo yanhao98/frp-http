@@ -13,8 +13,8 @@ print_title() {
 }
 
 if [ -z "${FRP_SUBDOMAIN_HOST}" ] || [ "${FRP_SUBDOMAIN_HOST}" = "domain.com" ]; then
-  echo "FRP_SUBDOMAIN_HOST is not set"
-  exit 1
+    echo "FRP_SUBDOMAIN_HOST is not set"
+    exit 1
 fi
 
 FRPS_VER=$(frps -v)
@@ -41,9 +41,9 @@ print_title "start nginx"
 # sleep 0.1
 print_title "start frps"
 exec /usr/bin/frps \
-  --bind_port="7000" \
-  --subdomain_host="${FRP_SUBDOMAIN_HOST}" \
-  --vhost_http_port="7080" \
-  --dashboard_port="7500" \
-  --dashboard_user="" \
-  --dashboard_pwd=""
+    --bind-port="7000" \
+    --subdomain-host="${FRP_SUBDOMAIN_HOST}" \
+    --vhost-http-port="7080" \
+    --dashboard-port="7500" \
+    --dashboard-user="" \
+    --dashboard-pwd=""

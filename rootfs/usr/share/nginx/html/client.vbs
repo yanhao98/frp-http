@@ -112,7 +112,7 @@ Sub OutputCustomText()
 End Sub
 
 Sub startFrp ()
-  startCmd = "cmd /c "&tempFolder&"\frpc.exe http --server_addr="&SERVER_IP&" --server_port=7000 --proxy_name="&computerName&"-"&port&" --local_port="&port&" --sd="&computerName&"-"&port
+  startCmd = "cmd /c "&tempFolder&"\frpc.exe http --server-addr="&SERVER_IP&" --server-port=7000 --proxy-name="&computerName&"-"&port&" --local-port="&port&" --sd="&computerName&"-"&port
 
   ' #############################
   Set objFile = FSO.CreateTextFile(tempFolder&"\start.bat", True)
