@@ -16,8 +16,14 @@ sed -i "s/REPLACE_SERVER_IP/${SERVER_IP}/g" /usr/share/nginx/html/client.sh
 sed -i "s/REPLACE_VERSION/${FRPS_VER}/g" /usr/share/nginx/html/client.sh
 
 sed -i "s/REPLACE_MAIN_DOMAIN/${FRP_SUBDOMAIN_HOST}/g" /usr/share/nginx/html/client.vbs
-sed -i "s/REPLACE_MAIN_DOMAIN/${FRP_SUBDOMAIN_HOST}/g" /usr/share/nginx/html/client.cmd
 sed -i "s/REPLACE_SERVER_IP/${SERVER_IP}/g" /usr/share/nginx/html/client.vbs
 sed -i "s/REPLACE_VERSION/${FRPS_VER}/g" /usr/share/nginx/html/client.vbs
+
+# 如果 FRP_SUBDOMAIN_HOST 是 n 开头，先把 default.conf.template 文件中的 `REPLACE_MAIN_DOMAIN_frp_client` 替换成 `\REPLACE_MAIN_DOMAIN_frp_client`
+if [[ ${FRP_SUBDOMAIN_HOST} == n* ]]; then
+    sed -i "s/REPLACE_MAIN_DOMAIN_frp_client/\\\\REPLACE_MAIN_DOMAIN_frp_client/g" /etc/nginx/templates/default.conf.template
+fi
+
+sed -i "s/REPLACE_MAIN_DOMAIN/${FRP_SUBDOMAIN_HOST}/g" /etc/nginx/templates/default.conf.template
 
 exec /docker-entrypoint-nginx.sh nginx -g 'daemon off;'
