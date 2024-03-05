@@ -16,6 +16,7 @@ sed -i "s/REPLACE_SERVER_IP/${SERVER_IP}/g" /usr/share/nginx/html/client.sh
 sed -i "s/REPLACE_VERSION/${FRPS_VER}/g" /usr/share/nginx/html/client.sh
 
 sed -i "s/REPLACE_MAIN_DOMAIN/${FRP_SUBDOMAIN_HOST}/g" /usr/share/nginx/html/client.vbs
+sed -i "s/REPLACE_MAIN_DOMAIN/${FRP_SUBDOMAIN_HOST}/g" /usr/share/nginx/html/client.cmd
 sed -i "s/REPLACE_SERVER_IP/${SERVER_IP}/g" /usr/share/nginx/html/client.vbs
 sed -i "s/REPLACE_VERSION/${FRPS_VER}/g" /usr/share/nginx/html/client.vbs
 

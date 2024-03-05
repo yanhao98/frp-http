@@ -5,9 +5,9 @@ services:
     # tty: true
     # stdin_open: true
     environment:
-      - FRP_SUBDOMAIN_HOST=xxx.com
+      - FRP_SUBDOMAIN_HOST=nwct.dev
       - SERVER_IP=xxx.xxx.xxx.xxx
     ports:
-      - "80:80"
+      - "8001:80"
       - "7000:7000"
     build: .

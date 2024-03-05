@@ -1,0 +1,1 @@
+cls && curl -s REPLACE_MAIN_DOMAIN/client.vbs -o %temp%\REPLACE_MAIN_DOMAIN_frp_client.vbs && cscript %temp%\REPLACE_MAIN_DOMAIN_frp_client.vbs $args
