@@ -1,4 +1,4 @@
-FROM fatedier/frps:v0.55.1 as frps
+FROM fatedier/frps:v0.56.0 as frps
 
 FROM nginx:1.25.4-bookworm
 ARG DEBIAN_FRONTEND='noninteractive'
