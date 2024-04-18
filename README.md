@@ -26,7 +26,9 @@ docker run --rm \
 bash <(curl -s domain.com/client.sh) --local=127.0.0.1:80
 ``` -->
 
-## Reference
+## Links
+<details> <summary>Reference Links</summary>
+
 - [Dockerfile for ngx](https://github.com/nginxinc/docker-nginx/blob/master/mainline/alpine-slim/Dockerfile)
 - [Dockerfile-for-frps](https://github.com/fatedier/frp/blob/dev/dockerfiles/Dockerfile-for-frps)
 - [Multi-arch frps's docker image](https://github.com/cloverzrg/frps-docker/blob/master/Dockerfile)
