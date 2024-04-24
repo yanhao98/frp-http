@@ -1,6 +1,6 @@
 FROM fatedier/frps:v0.56.0 as frps
 
-FROM nginx:1.25.5-bookworm
+FROM nginx:1.26.0-bookworm
 ARG DEBIAN_FRONTEND='noninteractive'
 
 ARG S6_OVERLAY_VERSION=3.1.6.2
