@@ -2,7 +2,7 @@ FROM nginx:1.27.0-bookworm@sha256:0f04e4f646a3f14bf31d8bc8d885b6c951fdcf42589d06
 ARG DEBIAN_FRONTEND='noninteractive'
 
 # renovate: datasource=github-releases depName=just-containers/s6-overlay versioning=loose
-ARG S6_OVERLAY_VERSION=v3.1.6.2
+ARG S6_OVERLAY_VERSION=v3.2.0.0
 ARG S6_OVERLAY_BASE_URL=https://github.com/just-containers/s6-overlay/releases/download
 RUN set -x && \
     apt-get update && apt-get install -y xz-utils && \
