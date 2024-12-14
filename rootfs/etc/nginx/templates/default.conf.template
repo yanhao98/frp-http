@@ -31,5 +31,10 @@ server {
     proxy_pass http://127.0.0.1:7080; # 7080 对应的是 entry.sh 的 --vhost_http_port
     proxy_set_header Host $http_host;
     # proxy_set_header X-Real-IP $remote_addr;
+
+    # WebSocket support
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection "upgrade";
   }
 }
