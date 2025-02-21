@@ -1,6 +1,7 @@
 server {
   listen 80;
   server_name ${FRP_SUBDOMAIN_HOST};
+  client_max_body_size 100m;  # 设置最大请求体大小为100MB
   default_type text/plain;
   charset utf-8;
   root /usr/share/nginx/html;
