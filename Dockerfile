@@ -1,4 +1,4 @@
-FROM nginx:1.28.0-bookworm@sha256:9334faa48d730571746a7baab46d62896cb685502bc29d270c4495e26fc78afd
+FROM nginx:1.28.0-bookworm@sha256:20555a07052bb7a1a0ed233d5dba2bdafb75e537948fadbc0e1fef151088dcdd
 ARG DEBIAN_FRONTEND='noninteractive'
 
 # renovate: datasource=github-releases depName=just-containers/s6-overlay versioning=loose
