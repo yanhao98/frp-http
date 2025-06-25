@@ -1,4 +1,4 @@
-FROM nginx:1.28.0-bookworm@sha256:9334faa48d730571746a7baab46d62896cb685502bc29d270c4495e26fc78afd
+FROM nginx:1.29.0-bookworm@sha256:dc53c8f25a10f9109190ed5b59bda2d707a3bde0e45857ce9e1efaa32ff9cbc1
 ARG DEBIAN_FRONTEND='noninteractive'
 
 # renovate: datasource=github-releases depName=just-containers/s6-overlay versioning=loose
@@ -10,7 +10,7 @@ RUN set -x && \
     curl --fail ${S6_OVERLAY_BASE_URL}/${S6_OVERLAY_VERSION}/s6-overlay-`uname -m| sed 's/armv7l/armhf/g'`.tar.xz -SLo- | tar -C / -Jxpf - && \
     apt-get purge -y --auto-remove xz-utils
 
-COPY --from=fatedier/frps:v0.62.1@sha256:971f0ae0af4c134abf1bdb8fbcae1088b8f0d48755172fa84a4fc573bd48b1aa \
+COPY --from=fatedier/frps:v0.63.0@sha256:a233a0b5b1f1599c84e391fddce82ecfdca800fe7bfb05c1bf8903567643d21b \
     /usr/bin/frps /usr/bin/frps
 COPY rootfs/ /
 COPY rootfs-s6-rc/ /
