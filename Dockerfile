@@ -10,7 +10,7 @@ RUN set -x && \
     curl --fail ${S6_OVERLAY_BASE_URL}/${S6_OVERLAY_VERSION}/s6-overlay-`uname -m| sed 's/armv7l/armhf/g'`.tar.xz -SLo- | tar -C / -Jxpf - && \
     apt-get purge -y --auto-remove xz-utils
 
-COPY --from=fatedier/frps:v0.68.1@sha256:d60e834f18e9e5495b8bb72798793a1a8edbc14ef32c1a7f6aa18fa41a4fc9cc \
+COPY --from=fatedier/frps:v0.69.0@sha256:bb94aea95a79b65f7d45262342d0628ff885f78f5adebb6be4b90120b2657941 \
     /usr/bin/frps /usr/bin/frps
 COPY rootfs/ /
 COPY rootfs-s6-rc/ /
